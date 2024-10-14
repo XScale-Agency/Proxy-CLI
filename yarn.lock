@@ -1739,6 +1739,8 @@ __metadata:
     prettier: "npm:^3.3.2"
     ts-node-maintained: "npm:^10.9.4"
     typescript: "npm:^5.4.5"
+  bin:
+    xproxy: ./build/index.js
   languageName: unknown
   linkType: soft
 

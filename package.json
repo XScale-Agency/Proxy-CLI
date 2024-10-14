@@ -64,6 +64,14 @@
     "access": "public",
     "tag": "latest"
   },
+  "homepage": "https://github.com/XScale-Agency/Proxy-CLI#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XScale-Agency/Proxy-CLI.git"
+  },
+  "bugs": {
+    "url": "https://github.com/XScale-Agency/Proxy-CLI/issues"
+  },
   "c8": {
     "exclude": [
       "tests/**"
