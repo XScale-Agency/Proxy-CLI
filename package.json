@@ -1,8 +1,7 @@
 {
-  "name": "@xscale/package-kit",
-  "description": "",
-  "version": "0.0.0",
-  "private": true,
+  "name": "@xscale/proxy-cli",
+  "description": "Allows you to start an http reverse proxy",
+  "version": "0.0.2",
   "engines": {
     "node": ">=20.6.0"
   },
@@ -12,9 +11,8 @@
     "build/index.d.ts",
     "build/index.js"
   ],
-  "exports": {
-    ".": "./build/index.js",
-    "./types": "./build/src/types.js"
+  "bin": {
+    "xproxy": "./build/index.js"
   },
   "scripts": {
     "clean": "del-cli build",
@@ -22,15 +20,15 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "quick:test": "node --import=./tsnode.esm.js --enable-source-maps bin/test.ts",
-    "pretest": "yarn lint",
+    "pretest": "yarn check",
     "test": "c8 yarn quick:test",
-    "prebuild": "yarn lint && yarn clean",
-    "build": "tsc",
+    "prebuild": "yarn check && yarn clean",
+    "build": "yarn check && tsc",
     "release": "yarn check && changeset version && changeset publish",
     "version": "yarn build",
     "prepublishOnly": "yarn build",
     "check": "yarn lint && yarn typecheck && yarn test",
-    "postinstall": "husky",
+    "prepare": "husky",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
     "playground": "node --import=./tsnode.esm.js --enable-source-maps bin/playground.ts"
@@ -45,6 +43,7 @@
     "@japa/assert": "^3.0.0",
     "@japa/runner": "^3.1.4",
     "@swc/core": "^1.6.3",
+    "@types/http-proxy": "^1",
     "@types/node": "^20.14.5",
     "c8": "^10.1.2",
     "copyfiles": "^2.4.1",
@@ -69,5 +68,10 @@
     "exclude": [
       "tests/**"
     ]
+  },
+  "dependencies": {
+    "@adonisjs/ace": "^13.3.0",
+    "get-port": "^7.1.0",
+    "http-proxy": "^1.18.1"
   }
 }

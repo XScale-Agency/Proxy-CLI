@@ -1,10 +1,5 @@
-/*
-|--------------------------------------------------------------------------
-| Package entrypoint
-|--------------------------------------------------------------------------
-|
-| Export values from the package entrypoint as you see fit.
-|
-*/
+#!/usr/bin/env node
 
-export * from './src/add.js'
+import { kernel } from './src/kernel.js'
+
+await kernel.handle(process.argv.splice(2))
