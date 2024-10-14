@@ -1,5 +1,11 @@
 # @xscale/proxy-cli
 
+## 0.0.3
+
+### Patch Changes
+
+- Upated readme
+
 ## 0.0.2
 
 ### Patch Changes
